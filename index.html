@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王远沪 | 学术主页</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 自定义配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a365d', // 深蓝主色调
+            secondary: '#2b6cb0', // 中蓝辅助色
+            accent: '#3182ce', // 亮蓝强调色
+            light: '#f7fafc', // 浅色背景
+            dark: '#1a202c', // 深色文本
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Merriweather', 'Georgia', 'serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .card-gradient {
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(26,54,93,0.05) 100%);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans bg-light text-dark">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="flex items-center space-x-2">
+        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+          <i class="fa fa-book text-white text-xl"></i>
+        </div>
+        <span class="text-xl font-bold text-primary tracking-wider">王远沪教授</span>
+      </a>
+      
+      <!-- 桌面导航 -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#about" class="text-dark/80 hover:text-primary transition-colors duration-300">关于我</a>
+        <a href="#publications" class="text-dark/80 hover:text-primary transition-colors duration-300">学术著作</a>
+        <a href="#papers" class="text-dark/80 hover:text-primary transition-colors duration-300">研究论文</a>
+        <a href="#news" class="text-dark/80 hover:text-primary transition-colors duration-300">最新动态</a>
+        <a href="#contact" class="text-dark/80 hover:text-primary transition-colors duration-300">联系方式</a>
+      </div>
+      
+      <!-- 移动端菜单按钮 -->
+      <button class="md:hidden text-primary text-2xl" id="menuBtn">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div class="md:hidden hidden bg-white absolute w-full shadow-lg" id="mobileMenu">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <a href="#about" class="text-dark/80 hover:text-primary py-2 transition-colors duration-300">关于我</a>
+        <a href="#publications" class="text-dark/80 hover:text-primary py-2 transition-colors duration-300">学术著作</a>
+        <a href="#papers" class="text-dark/80 hover:text-primary py-2 transition-colors duration-300">研究论文</a>
+        <a href="#news" class="text-dark/80 hover:text-primary py-2 transition-colors duration-300">最新动态</a>
+        <a href="#contact" class="text-dark/80 hover:text-primary py-2 transition-colors duration-300">联系方式</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <header class="pt-32 pb-16 bg-gradient-to-br from-primary/5 to-primary/10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-2/3">
+          <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-primary mb-4">王远沪</h1>
+          <h2 class="text-[clamp(1.2rem,3vw,1.8rem)] text-dark/80 font-light mb-6">
+            教授级高级工程师 | 电视技术专家 | 电子工程学者
+          </h2>
+          <p class="text-lg text-dark/70 leading-relaxed mb-8 max-w-3xl">
+            致力于<span class="text-primary font-medium">彩色电视技术</span>领域研究四十余年，出版《彩色电视原理和接收机》《大屏幕彩色电视机新技术新功能集成电路手册》等7部学术著作，
+            在《广东电子》《华南师范大学学报》《国际广播电视技术》《电视技术》等期刊发表论文40余篇。
+            长期倡导学术资源开放共享，将所有著作及论文免费公开，推动知识普惠。
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#publications" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-all duration-300 hover-lift flex items-center">
+              <i class="fa fa-book mr-2"></i> 浏览著作
+            </a>
+            <a href="#papers" class="bg-white border-2 border-primary text-primary hover:bg-primary/5 px-6 py-3 rounded-lg transition-all duration-300 hover-lift flex items-center">
+              <i class="fa fa-file-text-o mr-2"></i> 阅读论文
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主要内容 -->
+  <main>
+    <!-- 关于我 -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-primary text-center mb-16">关于我</h2>
+        
+        <div class="grid md:grid-cols-3 gap-12">
+          <div class="md:col-span-2">
+            <div class="bg-light rounded-xl p-8 shadow-md hover-lift">
+              <h3 class="text-2xl font-bold text-primary mb-6">个人简介</h3>
+              <p class="text-dark/70 leading-relaxed mb-4">
+                王远沪，1945年生于上海，1968年毕业于上海交通大学电子工程系，1981年获清华大学电子工程硕士学位。
+                曾任上海电视电子研究所所长、教授级高级工程师，长期从事彩色电视技术、数字图像处理等领域的研究与开发。
+              </p>
+              <p class="text-dark/70 leading-relaxed mb-4">
+                主持参与了多项国家重点科研项目，包括彩色电视接收机国产化、数字电视标准制定等。
+                出版《彩色电视原理和接收机》《电视信号处理技术》等学术著作7部，在《广东电子》《华南师范大学学报》《国际广播电视技术》《电视技术》等期刊发表论文40余篇，
+                获国家科技进步奖、电子工业部科技进步奖等多项荣誉。
+              </p>
+              <p class="text-dark/70 leading-relaxed">
+                近年来致力于推动学术资源开放获取，认为知识应属于全人类，而非少数付费者。为此，将个人所有学术著作和研究论文免费公开，
+                希望能为学术交流和知识传播贡献一份力量。
+              </p>
+            </div>
+            
+            <div class="mt-8 bg-light rounded-xl p-8 shadow-md hover-lift">
+              <h3 class="text-2xl font-bold text-primary mb-6">学术背景</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fa fa-graduation-cap text-primary text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-dark">清华大学</h4>
+                    <p class="text-dark/70">电子工程硕士 | 1978-1981</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fa fa-university text-primary text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-dark">上海交通大学</h4>
+                    <p class="text-dark/70">电子工程学士 | 1963-1968</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fa fa-flask text-primary text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-dark">上海电视电子研究所</h4>
+                    <p class="text-dark/70">所长 | 1990-2005</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="md:col-span-1">
+            <div class="bg-light rounded-xl p-8 shadow-md sticky top-24 hover-lift">
+              <h3 class="text-xl font-bold text-primary mb-6">学术任职</h3>
+              <ul class="space-y-3 text-dark/70">
+                <li class="flex items-start">
+                  <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                  <span>上海电视电子研究所 所长 (1990-2005)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                  <span>中国电子学会 理事 (1995-2015)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                  <span>《电子学报》 编委 (1998-2010)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                  <span>国家数字电视标准委员会 委员 (2003-2008)</span>
+                </li>
+              </ul>
+              
+              <div class="mt-8 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-bold text-primary mb-6">研究方向</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm">彩色电视技术</span>
+                  <span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm">电视信号处理</span>
+                  <span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm">数字图像处理</span>
+                  <span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm">显示技术</span>
+                  <span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm">电视接收机设计</span>
+                </div>
+              </div>
+              
+              <div class="mt-8 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-bold text-primary mb-6">荣誉与奖励</h3>
+                <ul class="space-y-3 text-dark/70">
+                  <li class="flex items-start">
+                    <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                    <span>国家科技进步二等奖 (1992)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                    <span>电子工业部科技进步一等奖 (1988)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                    <span>上海市劳动模范 (1995)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa fa-trophy text-primary mt-1 mr-3"></i>
+                    <span>国务院政府特殊津贴获得者 (1996)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 学术著作 -->
+    <section id="publications" class="py-20 bg-light">
+      <div class="container mx-auto px-4">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-primary text-center mb-16">学术著作</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 著作1：彩色电视原理和接收机 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/24/400/600" alt="《彩色电视原理和接收机》封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4 inline-block">1985年出版</span>
+              <h3 class="text-xl font-bold text-dark mb-2">彩色电视原理和接收机</h3>
+              <p class="text-dark/70 mb-4 line-clamp-3">
+                本书系统介绍了彩色电视的基本原理、信号处理技术和接收机设计方法，
+                是我国早期彩色电视技术领域的权威著作之一，被广泛用作高校教材和工程师参考用书。
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-medium">电子工业出版社</span>
+                <a href="#" class="text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fa fa-download mr-2"></i> 免费阅读
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 著作2：彩色电视原理和接收机（修订版） -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="./" alt="《彩色电视原理和接收机（修订版）》封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4 inline-block">1992年出版</span>
+              <h3 class="text-xl font-bold text-dark mb-2">彩色电视原理和接收机（修订版）</h3>
+              <p class="text-dark/70 mb-4 line-clamp-3">
+                本书是《彩色电视原理和接收机》的修订版，全面更新了彩色电视技术的最新发展，
+                增加了数字电视技术的相关内容，更加适合作为高校教材和工程师参考用书。
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-medium">电子工业出版社</span>
+                <a href="#" class="text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fa fa-download mr-2"></i> 免费阅读
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 著作3：大屏幕彩色电视机新技术新功能集成电路手册 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/26/400/600" alt="《大屏幕彩色电视机新技术新功能集成电路手册》封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4 inline-block">1995年出版</span>
+              <h3 class="text-xl font-bold text-dark mb-2">大屏幕彩色电视机新技术新功能集成电路手册</h3>
+              <p class="text-dark/70 mb-4 line-clamp-3">
+                本书详细介绍了大屏幕彩色电视机的新技术、新功能和相关集成电路的应用，
+                是一本实用性很强的工程技术手册，适合从事电视技术研发和维修的工程师参考。
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-medium">人民邮电出版社</span>
+                <a href="#" class="text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fa fa-download mr-2"></i> 免费阅读
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 著作4：电视机的使用调整与维修 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/27/400/600" alt="《电视机的使用调整与维修》封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4 inline-block">1998年出版</span>
+              <h3 class="text-xl font-bold text-dark mb-2">电视机的使用调整与维修</h3>
+              <p class="text-dark/70 mb-4 line-clamp-3">
+                本书结合实际工程经验，详细介绍了电视机的使用、调整和维修技术，
+                包括电视机的基本原理、电路分析、故障诊断和维修方法等内容，适合电视机维修人员和电子爱好者阅读。
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-medium">电子工业出版社</span>
+                <a href="#" class="text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fa fa-download mr-2"></i> 免费阅读
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 著作5：组合音响原理与电路分析 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/28/400/600" alt="《组合音响原理与电路分析》封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4 inline-block">2000年出版</span>
+              <h3 class="text-xl font-bold text-dark mb-2">组合音响原理与电路分析</h3>
+              <p class="text-dark/70 mb-4 line-clamp-3">
+                本书系统介绍了组合音响的基本原理、电路设计和调试方法，
+                包括音频信号处理、功率放大、录音与播放等技术，适合音响技术研发人员和爱好者参考。
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-medium">机械工业出版社</span>
+                <a href="#" class="text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fa fa-download mr-2"></i> 免费阅读
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 著作6：数字电视技术 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/29/400/600" alt="《数字电视技术》封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4 inline-block">2002年出版</span>
+              <h3 class="text-xl font-bold text-dark mb-2">数字电视技术</h3>
+              <p class="text-dark/70 mb-4 line-clamp-3">
+                本书系统介绍了数字电视的基本原理、关键技术和系统设计方法，
+                包括数字视频编码、传输、接收等技术，是数字电视领域的经典著作。
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-medium">清华大学出版社</span>
+                <a href="#" class="text-white bg-primary hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center">
+                  <i class="fa fa-download mr-2"></i> 免费阅读
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-12">
+          <button class="bg-white border-2 border-primary text-primary hover:bg-primary/5 px-8 py-3 rounded-lg transition-all duration-300 hover-lift">
+            加载更多著作 <i class="fa fa-angle-down ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究论文 -->
+    <section id="papers" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-primary text-center mb-16">研究论文</h2>
+        
+        <div class="bg-light rounded-xl p-8 shadow-md mb-12">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <h3 class="text-2xl font-bold text-primary mb-4 md:mb-0">按研究领域筛选</h3>
+            <div class="flex flex-wrap gap-3">
+              <button class="bg-primary text-white px-4 py-2 rounded-lg">全部</button>
+              <button class="bg-white border border-primary text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors duration-300">彩色电视</button>
+              <button class="bg-white border border-primary text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors duration-300">信号处理</button>
+              <button class="bg-white border border-primary text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors duration-300">显示技术</button>
+              <button class="bg-white border border-primary text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors duration-300">数字电视</button>
+            </div>
+          </div>
+          
+          <!-- 论文列表 -->
+          <div class="space-y-6">
+            <!-- 论文1：广东电子1993第1期 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm hover-lift">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">1993</span>
+                <span class="text-dark/60 text-sm">广东电子 第1期</span>
+              </div>
+              <h4 class="text-xl font-bold text-dark mb-2">
+                <a href="#" class="hover:text-primary transition-colors duration-300">彩电开关电源故障分析与维修技巧</a>
+              </h4>
+              <p class="text-dark/70 mb-4">
+                王远沪
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">彩色电视</span>
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">维修技术</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center text-dark/60 text-sm">
+                  <span class="mr-4"><i class="fa fa-download mr-1"></i> 654</span>
+                  <span><i class="fa fa-citation mr-1"></i> 234</span>
+                </div>
+                <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300 flex items-center">
+                  免费阅读 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 论文2：广东电子1993第2期 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm hover-lift">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">1993</span>
+                <span class="text-dark/60 text-sm">广东电子 第2期</span>
+              </div>
+              <h4 class="text-xl font-bold text-dark mb-2">
+                <a href="#" class="hover:text-primary transition-colors duration-300">彩电行扫描电路原理与故障排除</a>
+              </h4>
+              <p class="text-dark/70 mb-4">
+                王远沪
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">彩色电视</span>
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">电路分析</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center text-dark/60 text-sm">
+                  <span class="mr-4"><i class="fa fa-download mr-1"></i> 543</span>
+                  <span><i class="fa fa-citation mr-1"></i> 198</span>
+                </div>
+                <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300 flex items-center">
+                  免费阅读 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 论文3：广东电子1993第3期 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm hover-lift">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">1993</span>
+                <span class="text-dark/60 text-sm">广东电子 第3期</span>
+              </div>
+              <h4 class="text-xl font-bold text-dark mb-2">
+                <a href="#" class="hover:text-primary transition-colors duration-300">彩电伴音电路原理与音质改善</a>
+              </h4>
+              <p class="text-dark/70 mb-4">
+                王远沪
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">彩色电视</span>
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">音频处理</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center text-dark/60 text-sm">
+                  <span class="mr-4"><i class="fa fa-download mr-1"></i> 432</span>
+                  <span><i class="fa fa-citation mr-1"></i> 156</span>
+                </div>
+                <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300 flex items-center">
+                  免费阅读 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 论文4：广东电子1993第4期 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm hover-lift">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">1993</span>
+                <span class="text-dark/60 text-sm">广东电子 第4期</span>
+              </div>
+              <h4 class="text-xl font-bold text-dark mb-2">
+                <a href="#" class="hover:text-primary transition-colors duration-300">彩电遥控系统原理与设计</a>
+              </h4>
+              <p class="text-dark/70 mb-4">
+                王远沪
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">彩色电视</span>
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">遥控技术</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center text-dark/60 text-sm">
+                  <span class="mr-4"><i class="fa fa-download mr-1"></i> 321</span>
+                  <span><i class="fa fa-citation mr-1"></i> 123</span>
+                </div>
+                <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300 flex items-center">
+                  免费阅读 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 论文5：华南师范大学学报自然科学版1988第1期 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm hover-lift">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">1988</span>
+                <span class="text-dark/60 text-sm">华南师范大学学报自然科学版 第1期</span>
+              </div>
+              <h4 class="text-xl font-bold text-dark mb-2">
+                <a href="#" class="hover:text-primary transition-colors duration-300">彩色电视信号数字化处理技术研究</a>
+              </h4>
+              <p class="text-dark/70 mb-4">
+                王远沪, 陈小明
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">彩色电视</span>
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">数字信号处理</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center text-dark/60 text-sm">
+                  <span class="mr-4"><i class="fa fa-download mr-1"></i> 789</span>
+                  <span><i class="fa fa-citation mr-1"></i> 278</span>
+                </div>
+                <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300 flex items-center">
+                  免费阅读 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 论文6：华南师范大学学报自然科学版1988第2期 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm hover-lift">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">1988</span>
+                <span class="text-dark/60 text-sm">华南师范大学学报自然科学版 第2期</span>
+              </div>
+              <h4 class="text-xl font-bold text-dark mb-2">
+                <a href="#" class="hover:text-primary transition-colors duration-300">彩电色度信号解调算法研究</a>
+              </h4>
+              <p class="text-dark/70 mb-4">
+                王远沪, 李华
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">彩色电视</span>
+                <span class="bg-gray-100 text-dark/70 px-3 py-1 rounded-full text-xs">信号处理</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center text-dark/60 text-sm">
+                  <span class="mr-4"><i class="fa fa-download mr-1"></i> 678</span>
+                  <span><i class="fa fa-citation mr-1"></i> 234</span>
+                </div>
+                <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300 flex items-center">
+                  免费阅读 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 论文7：国际广播电视技术1997第1期 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm hover-lift">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">1997</span>
+                <span class="text-dark/60 text-sm">国际广播电视技术 第1期</span>
+              </div>
+              <h4 class="text-xl font-bold text-dark mb-2">
+                <a href="#" class="hover:text-primary transition-colors duration-300">数字电视传输技术
